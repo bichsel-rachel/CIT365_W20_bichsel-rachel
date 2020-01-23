@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaDesk-Bichsel", "MegaDesk-Bichsel\MegaDesk-Bichsel.csproj", "{953849B4-E02B-44AD-86BD-07ED12CF6FB9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{953849B4-E02B-44AD-86BD-07ED12CF6FB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{953849B4-E02B-44AD-86BD-07ED12CF6FB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{953849B4-E02B-44AD-86BD-07ED12CF6FB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{953849B4-E02B-44AD-86BD-07ED12CF6FB9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {39A38FB4-CE19-4170-994C-67E9CB9799B7}
+	EndGlobalSection
+EndGlobal

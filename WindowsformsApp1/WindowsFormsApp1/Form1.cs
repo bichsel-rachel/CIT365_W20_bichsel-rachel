@@ -193,21 +193,16 @@ namespace WindowsFormsApp1
 
         private void correct_Value(object sender, EventArgs e)
         {
-            // Select the whole answer in the NumericUpDown control.
-            NumericUpDown answerBox = sender as NumericUpDown;
-
-            
-           
-
             //Make a noise when correct answer is in box
-            if ((answerBox.Value == sum.Value) 
-                || (answerBox.Value == difference.Value)
-                || (answerBox.Value == product.Value)
-                || (answerBox.Value == quotient.Value))
+            if ((addend1 + addend2 == sum.Value))
+        //|| (minuend - subtrahend == difference.Value)
+        //|| (multiplicand * multiplier == product.Value)
+        //|| (dividend / divisor == quotient.Value))
             {
                 SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\chimes.wav");
                 simpleSound.Play();
             }
+            
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -242,11 +237,6 @@ namespace WindowsFormsApp1
 
         }
 
-        private void quotient_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void plusLeftLabel_Click(object sender, EventArgs e)
         {
 
@@ -255,6 +245,36 @@ namespace WindowsFormsApp1
         private void plusRightLabel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void correct_MinusValue(object sender, EventArgs e)
+        {
+            //Make a noise when correct answer is in box
+            if (minuend - subtrahend == difference.Value)
+            {
+                SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\chimes.wav");
+                simpleSound.Play();
+            }
+        }
+
+        private void correct_ProductValue(object sender, EventArgs e)
+        {
+            //Make a noise when correct answer is in box
+            if (multiplicand * multiplier == product.Value)
+            {
+                SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\chimes.wav");
+                simpleSound.Play();
+            }
+        }
+
+        private void correct_DivideValue(object sender, EventArgs e)
+        {
+            //Make a noise when correct answer is in box
+            if (dividend / divisor == quotient.Value)
+            {
+                SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\chimes.wav");
+                simpleSound.Play();
+            }
         }
     }
 }

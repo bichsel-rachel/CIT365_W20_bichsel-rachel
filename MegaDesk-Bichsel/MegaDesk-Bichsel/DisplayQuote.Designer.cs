@@ -30,7 +30,7 @@
         {
             this.closeDisplayQuote = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.deskQuoteTotal = new System.Windows.Forms.TextBox();
+            this.deskQuoteTotalResult = new System.Windows.Forms.TextBox();
             this.widthLabel = new System.Windows.Forms.TextBox();
             this.depthLabel = new System.Windows.Forms.TextBox();
             this.surfaceAreaLabel = new System.Windows.Forms.TextBox();
@@ -43,9 +43,12 @@
             this.depthResult = new System.Windows.Forms.TextBox();
             this.surfaceAreaResult = new System.Windows.Forms.TextBox();
             this.drawersResult = new System.Windows.Forms.TextBox();
-            this.surfaceMaterialResult = new System.Windows.Forms.TextBox();
+            this.surfaceMaterialPriceResult = new System.Windows.Forms.TextBox();
             this.rushOrderPriceResult = new System.Windows.Forms.TextBox();
             this.daySelectedResult = new System.Windows.Forms.TextBox();
+            this.customerNameDisplay = new System.Windows.Forms.TextBox();
+            this.customerNameLabel = new System.Windows.Forms.TextBox();
+            this.surfaceMaterialTypeResult = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // closeDisplayQuote
@@ -69,14 +72,14 @@
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Desk Quote Total: ";
             // 
-            // deskQuoteTotal
+            // deskQuoteTotalResult
             // 
-            this.deskQuoteTotal.BackColor = System.Drawing.SystemColors.Control;
-            this.deskQuoteTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deskQuoteTotal.Location = new System.Drawing.Point(270, 262);
-            this.deskQuoteTotal.Name = "deskQuoteTotal";
-            this.deskQuoteTotal.Size = new System.Drawing.Size(100, 30);
-            this.deskQuoteTotal.TabIndex = 2;
+            this.deskQuoteTotalResult.BackColor = System.Drawing.SystemColors.Control;
+            this.deskQuoteTotalResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deskQuoteTotalResult.Location = new System.Drawing.Point(270, 262);
+            this.deskQuoteTotalResult.Name = "deskQuoteTotalResult";
+            this.deskQuoteTotalResult.Size = new System.Drawing.Size(100, 30);
+            this.deskQuoteTotalResult.TabIndex = 2;
             // 
             // widthLabel
             // 
@@ -188,13 +191,13 @@
             this.drawersResult.Size = new System.Drawing.Size(100, 20);
             this.drawersResult.TabIndex = 15;
             // 
-            // surfaceMaterialResult
+            // surfaceMaterialPriceResult
             // 
-            this.surfaceMaterialResult.BackColor = System.Drawing.SystemColors.Control;
-            this.surfaceMaterialResult.Location = new System.Drawing.Point(270, 193);
-            this.surfaceMaterialResult.Name = "surfaceMaterialResult";
-            this.surfaceMaterialResult.Size = new System.Drawing.Size(100, 20);
-            this.surfaceMaterialResult.TabIndex = 16;
+            this.surfaceMaterialPriceResult.BackColor = System.Drawing.SystemColors.Control;
+            this.surfaceMaterialPriceResult.Location = new System.Drawing.Point(306, 193);
+            this.surfaceMaterialPriceResult.Name = "surfaceMaterialPriceResult";
+            this.surfaceMaterialPriceResult.Size = new System.Drawing.Size(64, 20);
+            this.surfaceMaterialPriceResult.TabIndex = 16;
             // 
             // rushOrderPriceResult
             // 
@@ -212,14 +215,42 @@
             this.daySelectedResult.Size = new System.Drawing.Size(39, 20);
             this.daySelectedResult.TabIndex = 18;
             // 
+            // customerNameDisplay
+            // 
+            this.customerNameDisplay.Location = new System.Drawing.Point(270, 33);
+            this.customerNameDisplay.Name = "customerNameDisplay";
+            this.customerNameDisplay.Size = new System.Drawing.Size(100, 20);
+            this.customerNameDisplay.TabIndex = 19;
+            // 
+            // customerNameLabel
+            // 
+            this.customerNameLabel.BackColor = System.Drawing.SystemColors.Control;
+            this.customerNameLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.customerNameLabel.Location = new System.Drawing.Point(41, 36);
+            this.customerNameLabel.Name = "customerNameLabel";
+            this.customerNameLabel.Size = new System.Drawing.Size(100, 13);
+            this.customerNameLabel.TabIndex = 20;
+            this.customerNameLabel.Text = "Customer Name:";
+            // 
+            // surfaceMaterialTypeResult
+            // 
+            this.surfaceMaterialTypeResult.BackColor = System.Drawing.SystemColors.Control;
+            this.surfaceMaterialTypeResult.Location = new System.Drawing.Point(225, 193);
+            this.surfaceMaterialTypeResult.Name = "surfaceMaterialTypeResult";
+            this.surfaceMaterialTypeResult.Size = new System.Drawing.Size(75, 20);
+            this.surfaceMaterialTypeResult.TabIndex = 21;
+            // 
             // DisplayQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 372);
+            this.Controls.Add(this.surfaceMaterialTypeResult);
+            this.Controls.Add(this.customerNameLabel);
+            this.Controls.Add(this.customerNameDisplay);
             this.Controls.Add(this.daySelectedResult);
             this.Controls.Add(this.rushOrderPriceResult);
-            this.Controls.Add(this.surfaceMaterialResult);
+            this.Controls.Add(this.surfaceMaterialPriceResult);
             this.Controls.Add(this.drawersResult);
             this.Controls.Add(this.surfaceAreaResult);
             this.Controls.Add(this.depthResult);
@@ -232,7 +263,7 @@
             this.Controls.Add(this.surfaceAreaLabel);
             this.Controls.Add(this.depthLabel);
             this.Controls.Add(this.widthLabel);
-            this.Controls.Add(this.deskQuoteTotal);
+            this.Controls.Add(this.deskQuoteTotalResult);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.closeDisplayQuote);
             this.Name = "DisplayQuote";
@@ -247,7 +278,7 @@
 
         private System.Windows.Forms.Button closeDisplayQuote;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox deskQuoteTotal;
+        private System.Windows.Forms.TextBox deskQuoteTotalResult;
         private System.Windows.Forms.TextBox widthLabel;
         private System.Windows.Forms.TextBox depthLabel;
         private System.Windows.Forms.TextBox surfaceAreaLabel;
@@ -260,8 +291,11 @@
         private System.Windows.Forms.TextBox depthResult;
         private System.Windows.Forms.TextBox surfaceAreaResult;
         private System.Windows.Forms.TextBox drawersResult;
-        private System.Windows.Forms.TextBox surfaceMaterialResult;
+        private System.Windows.Forms.TextBox surfaceMaterialPriceResult;
         private System.Windows.Forms.TextBox rushOrderPriceResult;
         private System.Windows.Forms.TextBox daySelectedResult;
+        private System.Windows.Forms.TextBox customerNameDisplay;
+        private System.Windows.Forms.TextBox customerNameLabel;
+        private System.Windows.Forms.TextBox surfaceMaterialTypeResult;
     }
 }

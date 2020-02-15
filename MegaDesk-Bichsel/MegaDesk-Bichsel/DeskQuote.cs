@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,8 @@ namespace MegaDesk_Bichsel
         private int drawerPrice;
         private string customerName;
         private int rushOrder;
-        private int rushDay;
-
-
+        private int rushDay;        
+        
         public DeskQuote(string CustomerName, int Width, int Depth, int Drawers, int RushDay)
         {
             customerName = CustomerName;
@@ -144,5 +145,46 @@ namespace MegaDesk_Bichsel
             float deskQuote = BASE_PRICE + desktopSurfaceArea(width, depth) + setDrawerPrice(drawers) + desktopMaterialPrice(surfaceMaterial) + rushOrderPrice(rushDay, surfaceArea);
             return deskQuote;
         }
+
+
+        //Get Rush Order
+        public int[,] GetRushOrder()
+        {
+            string[] orderPrices = File.ReadAllLines("C:\\Users\\owner\\Desktop\\github\\classes\\cit365\\CIT365_W20_bichsel-rachel\\MegaDesk-Bichsel\\MegaDesk-Bichsel\\rushOrderPrices.txt");
+            int[,] rushOrderGrid = new int[3, 3];
+
+            //outer loop for rows, inner for columns
+            int x = 0;
+            int i;
+            int j = 0;
+            for (i = 0; i < 3; i++)
+            {
+                for (j = 0; j < 3; j++)
+                {
+                    int output = int.Parse(orderPrices[x]);
+                    rushOrderGrid[i, j] = output;
+                    MessageBox.Show("Test:" + i + ", " + j + " " + rushOrderGrid[i,j]);
+                    x++;
+                }
+                
+            }
+            
+            return rushOrderGrid;
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+
+
     }
+
+
 }

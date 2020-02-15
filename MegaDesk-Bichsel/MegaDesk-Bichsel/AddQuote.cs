@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,22 +40,14 @@ namespace MegaDesk_Bichsel
             customerName = customerNameInput.Text;
             
             width = int.Parse(widthInput.Text);
-            depth = int.Parse(depthInput.Text);
             surfaceMaterial = materialDropBox.Text;
+            drawers = int.Parse(drawersInput.Text);
 
-            try
-            {
-                if (int.Parse(drawersInput.Text) < 8)
-                {
-                    drawers = int.Parse(drawersInput.Text);
-                }
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                MessageBox.Show("Too many drawers selected. Please select 0 to 7 drawers.");
-                drawers = 7;
-                throw;
-            }
+           
+            
+
+           
+            
 
             //set Rush Day to Value
             if (noDayRush.Checked)
@@ -88,6 +81,33 @@ namespace MegaDesk_Bichsel
             float quoteTotal = newQuote.setDeskQuote(width, depth, drawers, surfaceMaterial, rushDay, surfaceArea);
             newQuote.getCustomerName();
 
+            //Testing
+            newQuote.GetRushOrder();
+            try
+            {
+                if (!(int.Parse(depthInput.Text) < Desk.MIN_DEPTH)
+                || !(int.Parse(depthInput.Text) > Desk.MAX_DEPTH))
+                {
+                    depth = int.Parse(depthInput.Text);
+                }
+            }
+            catch (FormatException) //when (depthInput.Text == "")
+            {
+                if (depthInput.Text == "")
+                {
+                    MessageBox.Show("Depth field empty. Please input depth between 12 and 48.");
+                }
+                else
+                {
+                    throw;
+                }
+                //AddQuote viewAddQuote = new AddQuote();
+                //viewAddQuote.Show();
+
+                //throw;
+
+            }
+
             DisplayQuote toDisplayQuote = new DisplayQuote(customerNameInput.Text, width, depth, drawerPrice, surfaceArea, rushOrderPrice, surfaceMaterial, desktopMaterialPrice, quoteTotal);
 
            
@@ -101,6 +121,7 @@ namespace MegaDesk_Bichsel
 
         private void widthInput_Validating(object sender, CancelEventArgs e)
         {
+            
             if ((int.Parse(widthInput.Text) < Desk.MIN_WIDTH)
                 || (int.Parse(widthInput.Text) > Desk.MAX_WIDTH))
             {

@@ -36,9 +36,10 @@ namespace MegaDesk_Bichsel
         
         private void closeDisplayQuote_Click(object sender, EventArgs e)
         {
-            MainMenu viewMainMenuForm = (MainMenu)Tag;
-            viewMainMenuForm.Show();
-            Close();
+            MainMenu closeDisplayQuote = new MainMenu();
+            closeDisplayQuote.Tag = this;
+            closeDisplayQuote.Show(this);
+            Hide();
 
         }
 
@@ -62,6 +63,14 @@ namespace MegaDesk_Bichsel
         public void setMaterial(string material)
         {
             surfaceMaterialPriceResult.Text = material;
+        }
+
+        private void editQuote_Click(object sender, EventArgs e)
+        {
+            AddQuote viewAddQuotesForm = new AddQuote();
+            viewAddQuotesForm.Tag = this;
+            viewAddQuotesForm.Show(this);
+            Hide();
         }
     }
 }

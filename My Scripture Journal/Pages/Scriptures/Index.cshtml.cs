@@ -23,14 +23,44 @@ namespace My_Scripture_Journal
         public IList<Scripture> Scripture { get; set; }
         [BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
+
+        //Testing
+        [BindProperty(SupportsGet = true)]
+        public string SearchString2 { get; set; }
+
         // Requires using Microsoft.AspNetCore.Mvc.Rendering;
         public SelectList Books { get; set; }
         [BindProperty(SupportsGet = true)]
 
         public string ScriptureBook{ get; set; }
+        public string BookSort { get; set; }
+        public string DateSort { get; set; }
+        
 
-        public async Task OnGetAsync()
+            public async Task OnGetAsync(string sortOrder)
         {
+            BookSort = String.IsNullOrEmpty(sortOrder) ? "book_desc" : "";
+            DateSort = sortOrder == "Date" ? "date_desc" : "Date";
+
+            IQueryable<Scripture> scripturePower = from s in _context.Scripture
+                                             select s;
+            switch (sortOrder)
+            {
+                case "book_desc":
+                    scripturePower = scripturePower.OrderByDescending(s => s.Book);
+                    break;
+                case "Date":
+                    scripturePower = scripturePower.OrderBy(s => s.DateAdded);
+                    break;
+                case "date_desc":
+                    scripturePower = scripturePower.OrderByDescending(s => s.DateAdded);
+                    break;
+                default:
+                    scripturePower = scripturePower.OrderBy(s => s.Book);
+                    break;
+            }
+           
+
             // Use LINQ to get list of books.
             IQueryable<string> bookQuery = from m in _context.Scripture
                                             orderby m.Book
@@ -47,8 +77,25 @@ namespace My_Scripture_Journal
             {
                 scriptures = scriptures.Where(x => x.Book == ScriptureBook);
             }
+
+            //keyword search
+            if (!string.IsNullOrEmpty(SearchString2) && string.IsNullOrEmpty(ScriptureBook) && string.IsNullOrEmpty(SearchString))
+            {
+                scriptures = scriptures.Where(s => s.Note.Contains(SearchString2));
+            }
+
             Books = new SelectList(await bookQuery.Distinct().ToListAsync());
-            Scripture = await scriptures.ToListAsync();
+            
+            if(sortOrder == null)
+            {
+                Scripture = await scriptures.ToListAsync();
+            }
+            else
+            {
+                Scripture = await scripturePower.AsNoTracking().ToListAsync();
+            }
+           
         }
+        
     }
 }

@@ -4,6 +4,11 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
+<div class="text-center" id="main">
     <h1 class="display-4">My Scripture Journal</h1>
-    </div>
+    <img src="~/images/bible.jpg" alt="bible">
+    <p class="quote">"As we read and ponder the scriptures, we will experience the sweet whisperings of the Spirit to our souls."
+    </p>
+    <p class="quote-by">-President Thomas S. Monson</p>
+    <a id="main-btn" asp-page="/Scriptures/Create" class="btn btn-primary">Create New Note</a>
+</div>

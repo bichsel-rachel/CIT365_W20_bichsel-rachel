@@ -1,5 +1,12 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+@import url('https://fonts.googleapis.com/css?family=Heebo&display=swap');
+
+main {
+    margin: 0;
+    padding: 1em;  
+    color: white;
+}
 
 a.navbar-brand {
   white-space: normal;
@@ -9,26 +16,33 @@ a.navbar-brand {
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #cc9999!important;
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: white!important;
+    background-color: #08aba6;
+    border-color: #09968f;
 }
 
+    .btn-primary:hover {
+        background-color: #0ac1b8;
+        border-color: #1bafa7;
+    }
+
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #0ac1b8;
+    border-color: #1bafa7;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
+    
 }
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -36,10 +50,10 @@ html {
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #44080d!important;
 }
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #44080d!important;
 }
 
 .box-shadow {
@@ -59,13 +73,81 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background: #5e0e10;
+    font-family: 'Heebo';
 }
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+    text-align: center;
+    background-color: #ab191d;
 }
+
+header {
+    background: #ab191d;
+}
+
+#main img {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+}
+
+tr {
+    color: white;
+}
+
+.bg-white {
+    background-color: #ab191d!important;
+}
+
+footer .container {
+    color: #cc9999 !important;
+}
+
+p.quote {
+    font-size: 16px;
+    padding-top: 10px;
+}
+
+p.quote-by {
+    font-size: 14px;
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+a.nav-link.text-dark {
+    color: #f2d7d9 !important;
+}
+
+a.nav-link.text-dark:hover {
+    color: #fff !important;
+}
+
+a.navbar-brand {
+    color: #f2d7d9 !important;
+}
+
+a.navbar-brand:hover {
+    color: #fff !important;
+}
+
+a.btn-create {
+    color: white!important;
+    background-color: #08aba6;
+    border-color: #09968f;
+    padding: 5px 10px 5px 10px;
+    border-radius: 25px;
+    font-size: 14px;
+}
+
+    a.btn-create:hover {
+        text-decoration: none;
+        background-color: #0ac1b8;
+        border-color: #1bafa7;
+    }

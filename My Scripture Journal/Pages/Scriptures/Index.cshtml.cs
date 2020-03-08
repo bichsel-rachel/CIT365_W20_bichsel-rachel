@@ -39,7 +39,8 @@ namespace My_Scripture_Journal
 
             public async Task OnGetAsync(string sortOrder)
         {
-            BookSort = String.IsNullOrEmpty(sortOrder) ? "book_desc" : "";
+            
+            BookSort = sortOrder == "Book" ? "name_desc" : "Book";
             DateSort = sortOrder == "Date" ? "date_desc" : "Date";
 
             IQueryable<Scripture> scripturePower = from s in _context.Scripture
@@ -51,6 +52,9 @@ namespace My_Scripture_Journal
                     break;
                 case "Date":
                     scripturePower = scripturePower.OrderBy(s => s.DateAdded);
+                    break;
+                case "Book":
+                    scripturePower = scripturePower.OrderBy(s => s.Book);
                     break;
                 case "date_desc":
                     scripturePower = scripturePower.OrderByDescending(s => s.DateAdded);

@@ -122,7 +122,7 @@ p.quote-by {
 }
 
 a.nav-link.text-dark {
-    color: #f2d7d9 !important;
+    color: #f2d7d9= !important;
 }
 
 a.nav-link.text-dark:hover {
